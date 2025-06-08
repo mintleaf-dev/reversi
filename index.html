@@ -202,18 +202,21 @@
                 <div class="flex flex-col h-[500px]">
                     <div class="bg-green-50 p-4 rounded-lg mb-4">
                         <h3 class="text-xl font-bold mb-2 text-green-700">Чат про Реверсі</h3>
-                        <p>Задайте питання про гру, стратегії або правила!</p>
+                        <p>Оберіть категорію та питання, щоб отримати відповідь!</p>
+                    </div>
+                    <div class="mb-4 flex flex-col sm:flex-row gap-2 items-center">
+                        <label for="chat-category" class="font-semibold">Категорія:</label>
+                        <select id="chat-category" class="custom-select border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto">
+                            <!-- Категорії додаються через JS -->
+                        </select>
+                    </div>
+                    <div id="chat-questions" class="mb-4 flex flex-wrap gap-2">
+                        <!-- Питання додаються через JS -->
                     </div>
                     <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 p-2 bg-gray-50 rounded-lg">
                         <div class="bot-message chat-message">
                             Вітаю! Я можу відповісти на ваші запитання про гру Реверсі (Отелло). Що вас цікавить?
                         </div>
-                    </div>
-                    <div class="flex">
-                        <input type="text" id="chat-input" class="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Введіть ваше повідомлення...">
-                        <button id="send-message" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r-lg transition">
-                            Надіслати
-                        </button>
                     </div>
                 </div>
             </div>
