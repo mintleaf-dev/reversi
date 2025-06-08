@@ -1,0 +1,199 @@
+        :root {
+            --light-green: #e0f2e9;
+            --medium-green: #a8dadc;
+            --dark-green: #2a9d8f;
+            --accent: #e76f51;
+            --text: #264653;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-green);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--dark-green);
+            border-radius: 2px;
+        }
+        
+        .game-cell {
+            background-color: #4a9e5c;
+            border: 1px solid #3d8a4e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .game-cell:hover {
+            background-color: #5cb36e;
+        }
+        
+        .game-piece {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+        
+        .game-piece.black {
+            background: radial-gradient(circle at 30% 30%, #444, #111);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-piece.white {
+            background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .game-piece.flip {
+            transform: rotateY(180deg);
+        }
+        
+        .chat-message {
+            border-radius: 18px;
+            padding: 10px 16px;
+            margin: 8px 0;
+            max-width: 80%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .user-message {
+            background-color: var(--medium-green);
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .bot-message {
+            background-color: white;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .valid-move-indicator {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 30%;
+            height: 30%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 1s infinite;
+        }
+        
+        .turn-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .turn-indicator.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-disabled-bot {
+            background-color: #9ca3af !important; /* Tailwind gray-400 */
+            color: #fff !important;
+            border: none !important;
+            opacity: 1 !important;
+            cursor: not-allowed !important;
+        }
+
+        .thinking {
+            /* position: relative; */ /* Більше не потрібно */
+            display: inline-block;
+            min-width: 1.5em; /* Щоб крапки не стрибали */
+            vertical-align: middle;
+        }
+        .thinking::after {
+            content: '...';
+            /* position: absolute; */ /* Прибрати */
+            animation: thinking 1.5s infinite;
+            /* margin-left: 4px; */ /* Прибрати */
+            display: inline;
+        }
+        @keyframes thinking {
+            0% { content: '.'; }
+            33% { content: '..'; }
+            66% { content: '...'; }
+            100% { content: '.'; }
+        }
+        
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 1em;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s;
+        }
+        
+        @media (max-width: 640px) {
+            .game-board {
+                width: 100%;
+                max-width: 360px;
+            }
+            
+            .game-cell {
+                width: 40px;
+                height: 40px;
+            }
+        }
