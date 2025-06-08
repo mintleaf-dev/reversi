@@ -190,7 +190,7 @@ function initGame() {
     // Reset game state
     currentPlayer = 1;
     showingMoves = false;
-    moveCounter = 1;
+    moveCounter = 0;
     capturedPieces = 0;
     gameInProgress = true;
     gameHistory = [];
